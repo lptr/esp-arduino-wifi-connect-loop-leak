@@ -1,8 +1,8 @@
 #include <Arduino.h>
 #include <WiFi.h>
 
-#include <esp_heap_trace.h>
 #include <esp_heap_task_info.h>
+#include <esp_heap_trace.h>
 
 #define MAX_TASK_NUM 20     // Max number of per tasks info that it can store
 #define MAX_BLOCK_NUM 20    // Max number of per block info that it can store
@@ -68,6 +68,7 @@ extern "C" void app_main() {
             delay(250);
             printf(".");
         }
+        WiFi.mode(WIFI_OFF);
         printf(" done\n");
 
         ESP_ERROR_CHECK(heap_trace_stop());
